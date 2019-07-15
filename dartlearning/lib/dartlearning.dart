@@ -1,11 +1,35 @@
-
-import 'dart:ffi';
-
 int calculate() {
   return 6 * 7;
 }
 
-void datatype() {
+void dartBasics() {
+  // 2.5 
+  var result1 = 5/2;
+  // 整除
+  var result2 = 5 ~/ 2;
+  print('result:$result1, result2:$result2');
+
+  String x = '1234';
+  // as是类型转换, is ：True, is! ：False
+  if (x is! num) {
+    print('1');
+  } else {
+    print('2');
+  }
+
+  // 赋值操作符
+  String s1 = 'abc';
+  String s2 = null;
+  String s3 = 'def';
+  String s4 = null;
+  // 如果时=null则赋值s1给s2,否则a不变
+  s2 ??= s1;
+  s3 ??= s1;
+  print('s2=$s2, s3=$s3');
+
+  // 如果 ?? 左侧表达式为null，返回其值，否则执行右侧表达式
+  print('result=${s1 ?? s3}, result2 = ${s4 ?? s3}');
+
   // Dart里是强类型的，也有自动推断类型的机制
   // 在Dart里定义变量使用有 var, const, dynamic, object, 类型等方式
   // 基本数据类型 number:int double

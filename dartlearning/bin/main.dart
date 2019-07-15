@@ -1,52 +1,49 @@
 import 'package:dartlearning/dartlearning.dart' as dartlearning;
+import 'package:dartlearning/dartclasses.dart' as dartclasses;
 
 main(List<String> arguments) {
-  dartlearning.datatype();
+  // 语法基础
+  // dartlearning.dartBasics();
+  // 类
+  var p1 = dartclasses.Point(3, 4);
+  p1.x = 3;
+  print(p1.x);
+  print(p1.y);
+  // Getter Setter
+  var rect = dartclasses.Rectangle(2, 4, 20, 15);
+  rect.right = 12;
+  print('rect.left:${rect.left}, rect.top:${rect.top}');
+
+  // 隐式接口
+  String greetBob(dartclasses.ImplicitPerson perspn) => perspn.greet('Bob');
+  print(greetBob(dartclasses.ImplicitPerson('Kathy')));
+  print(greetBob(dartclasses.Impostor())); 
+
+  // 重写运算符
+
+  final v = dartclasses.Vector(2, 3);
+  final w = dartclasses.Vector(2, 2);
+
+  print((v+w).x);
+  print((v-w).x);
+
+  // 枚举
+  List<dartclasses.Color> colors = dartclasses.Color.values;
+  print(colors);
+
+  var aColor = dartclasses.Color.blue;
+  switch (aColor) {
+    case dartclasses.Color.red:
+      print('Red');
+      break;
+    case dartclasses.Color.blue:
+      print('Blue');
+      break;
+    case dartclasses.Color.green:
+      print('Green');
+      break;
+  }
+
   
-  print('Hello world: ${dartlearning.calculate()}!');
-  // 2.5 
-  var result1 = 5/2;
-  // 整除
-  var result2 = 5 ~/ 2;
-  print('result:$result1, result2:$result2');
 
-  String x = '1234';
-  // as是类型转换, is ：True, is! ：False
-  if (x is! num) {
-    print('1');
-  } else {
-    print('2');
-  }
-
-  int a = 1;
-  int b = 1;
-  // 判断相等
-  if (a == b) print('1');
-
-  // 赋值操作符
-  String s1 = 'abc';
-  String s2 = null;
-  String s3 = 'def';
-  String s4 = null;
-  // 如果时=null则赋值s1给s2,否则a不变
-  s2 ??= s1;
-  s3 ??= s1;
-  print('s2=$s2, s3=$s3');
-
-  // 如果 ?? 左侧表达式为null，返回其值，否则执行右侧表达式
-  print('result=${s1 ?? s3}, result2 = ${s4 ?? s3}');
-
-  // 捕获异常
-  try{
-    print('123');
-  } on Exception catch (e) {
-    print('Exception details:\n $e');
-  } catch (e, s) {
-    print('Exception details:\n $e');
-    print('Stack trace:\n $s');
-  } finally {
-    print('Finally');
-  }
 }
-
-
