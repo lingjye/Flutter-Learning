@@ -236,6 +236,21 @@ Function makeAdder(num addBy) {
   return (num i) => addBy + i;
 }
 
+// 类型定义
+// class SortedCollection {
+//   Function compare;
+//   SortedCollection(int f(Object a, Object b)) {
+//     compare = f;
+//   }
+// }
+
+typedef Compare = int Function(Object a, Object b);
+
+class SortedCollection {
+  Compare compare;
+  SortedCollection(this.compare);
+}
+
 // 检查函数类型
 typedef CheckCompare<T> = int Function(T a, T b);
 
