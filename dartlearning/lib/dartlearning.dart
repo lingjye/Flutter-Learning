@@ -236,3 +236,19 @@ Function makeAdder(num addBy) {
   return (num i) => addBy + i;
 }
 
+// 检查函数类型
+typedef CheckCompare<T> = int Function(T a, T b);
+
+
+// 元数据
+class MTelevision {
+  /// _Deprecated: Use [turnOn] instead._
+  @deprecated
+  void activate() {
+    turnOn();
+  }
+
+  void turnOn() {
+    print('turn On');
+  }
+}

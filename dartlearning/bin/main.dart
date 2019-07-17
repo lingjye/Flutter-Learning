@@ -1,49 +1,49 @@
-import 'package:dartlearning/dartlearning.dart' as dartlearning;
-import 'package:dartlearning/dartclasses.dart' as dartclasses;
+import 'package:dartlearning/dartgenerics.dart';
+import 'package:dartlearning/dartlearning.dart';
+import 'package:dartlearning/dartclasses.dart';
+import 'package:dartlearning/defferLoadLibrary.dart' deferred as hello;
+import 'package:dartlearning/dartasync.dart';
+import 'package:dartlearning/dartAnnotation.dart';
 
 main(List<String> arguments) {
   // 语法基础
-  // dartlearning.dartBasics();
+  // dartBasics();
   // 类
-  var p1 = dartclasses.Point(3, 4);
-  p1.x = 3;
-  print(p1.x);
-  print(p1.y);
-  // Getter Setter
-  var rect = dartclasses.Rectangle(2, 4, 20, 15);
-  rect.right = 12;
-  print('rect.left:${rect.left}, rect.top:${rect.top}');
+  // dartclasses();
+  // generics();
+  // 延时库
+  // greet();
+  // 异步
+  dartAsync();
+  // 类型定义
+  int sort(Object a, Object b) => 0;
+  SortedCollection coll = SortedCollection(sort);
+  // assert(coll.compare is Function);
+  print(coll.compare is Function);
+  print(coll.compare is Compare);
 
-  // 隐式接口
-  String greetBob(dartclasses.ImplicitPerson perspn) => perspn.greet('Bob');
-  print(greetBob(dartclasses.ImplicitPerson('Kathy')));
-  print(greetBob(dartclasses.Impostor())); 
+  // checK function type
+  int checkSort(int a, int b) => a - b;
+  print(checkSort is CheckCompare<int>);
 
-  // 重写运算符
+  // 元数据
+  var tele = MTelevision();
+  // tele.activate();
+  tele.turnOn();
 
-  final v = dartclasses.Vector(2, 3);
-  final w = dartclasses.Vector(2, 2);
+  // Callable Classes
+  var wf = WannabeFunction();
+  var out = wf('Hi', 'There', 'gang');
+  print(out);
+}
 
-  print((v+w).x);
-  print((v-w).x);
+// 延迟加载一个库
+Future greet() async {
+  await hello.loadLibrary();
+  hello.printHello();
+}
 
-  // 枚举
-  List<dartclasses.Color> colors = dartclasses.Color.values;
-  print(colors);
-
-  var aColor = dartclasses.Color.blue;
-  switch (aColor) {
-    case dartclasses.Color.red:
-      print('Red');
-      break;
-    case dartclasses.Color.blue:
-      print('Blue');
-      break;
-    case dartclasses.Color.green:
-      print('Green');
-      break;
-  }
-
-  
-
+@Todo('seth', 'make this do something')
+void doSomething() {
+  print('do something');
 }

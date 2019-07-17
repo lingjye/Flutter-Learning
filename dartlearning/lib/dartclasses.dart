@@ -1,5 +1,47 @@
 import 'dart:math';
 
+void dartclasses() {
+  var p1 = Point(3, 4);
+  p1.x = 3;
+  print(p1.x);
+  print(p1.y);
+  // Getter Setter
+  var rect = Rectangle(2, 4, 20, 15);
+  rect.right = 12;
+  print('rect.left:${rect.left}, rect.top:${rect.top}');
+
+  // 隐式接口
+  String greetBob(ImplicitPerson perspn) => perspn.greet('Bob');
+  print(greetBob(ImplicitPerson('Kathy')));
+  print(greetBob(Impostor())); 
+
+  // 重写运算符
+
+  final v = Vector(2, 3);
+  final w = Vector(2, 2);
+
+  print((v+w).x);
+  print((v-w).x);
+
+  // 枚举
+  List<Color> colors = Color.values;
+  print(colors);
+
+  var aColor = Color.blue;
+  switch (aColor) {
+    case Color.red:
+      print('Red');
+      break;
+    case Color.blue:
+      print('Blue');
+      break;
+    case Color.green:
+      print('Green');
+      break;
+  }
+}
+
+// 类
 class Point {
   // 声明实例变量x,y
   // num x = 0;
@@ -245,4 +287,24 @@ class Maestro extends Performer
 // mixin 关键字 on
 mixin MusicalPerformer on Musician {
   
+}
+
+// 类型定义
+// class SortedCollection {
+//   Function compare;
+//   SortedCollection(int f(Object a, Object b)) {
+//     compare = f;
+//   }
+// }
+
+typedef Compare = int Function(Object a, Object b);
+
+class SortedCollection {
+  Compare compare;
+  SortedCollection(this.compare);
+}
+
+/// 可调用的类
+class  WannabeFunction {
+  call(String a, String b, String c) => '$a $b $c!';
 }
