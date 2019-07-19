@@ -1,64 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:helloworld/widget/dart_animation.dart' as dart_animation;
+import 'package:helloworld/widget/dart_custom_widget.dart' as dart_custom_widget;
+import 'package:helloworld/widget/dart_manage_subwidget.dart' as dart_subwidget;
+import 'package:helloworld/widget/dart_layout.dart' as dart_layout;
+import 'package:helloworld/widget/dart_paniter.dart' as dart_painter;
+import 'package:helloworld/widget/dart_widget.dart' as dart_widget;
+import 'package:helloworld/widget/theme_demo.dart' as dart_theme;
+import 'package:helloworld/navigation/dart_navigation.dart' as dart_navigation;
 
-// void main() {
-//   runApp(
-//     new Center(child: new Text(
-//         'Hello world',
-//         textDirection: TextDirection.ltr,
-//       ),
-//     ),
+void main() => runApp(
+  /// Widget
+  // dart_theme.MyApp()
+  // dart_widget.SampleApp()
+  // dart_layout.LayoutSampleApp()
+  // dart_subwidget.SubWidgetSampleApp()
+  // dart_animation.AnimationSampleApp()
+  // dart_painter.PainterSampleApp()
+  // dart_custom_widget.CustomButtonSampleApp()
 
-//   );
-// }
-void main() => runApp(MyApp());
+  /// 导航
+  dart_navigation.NavigationSampleApp()
+  
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    final appName = 'Custom Themes';
-    return MaterialApp(
-      title: appName,
-      theme:  new ThemeData(
-        brightness: Brightness.light,
-        accentColor: Colors.yellow,
-        primaryColor: Colors.red
-      ),
-      home: new MyHomePage(
-        title: appName
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  MyHomePage({Key key, @required this.title}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(title),
-      ),
-      body: new Center(
-        child: new Container(
-          color: Theme.of(context).accentColor,
-          child: new Text(
-            title
-          ),
-        ),
-      ),
-      floatingActionButton: new Theme(
-        data: Theme.of(context).copyWith(accentColor: Colors.yellow),
-        child: new FloatingActionButton(
-          onPressed: null,
-          child: new Icon(Icons.add),
-        ),
-        
-      ),
-    );
-  }
-}
+);

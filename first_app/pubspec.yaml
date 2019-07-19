@@ -22,6 +22,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  # 开源库本地安装路径 ~/Users/txooo/flutter/.pub-cache/hosted/pub.flutter-io.cn/xxxxx
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0 
   
