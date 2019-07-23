@@ -76,7 +76,15 @@ class _DoubleTapAnimationState extends State<DoubleTapAnimation> with TickerProv
   CurvedAnimation curve;
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
+    super.initState();
     controller = AnimationController(duration: const Duration(milliseconds: 1000), vsync: this);
     curve = CurvedAnimation(parent: controller, curve: Curves.easeIn);
   }

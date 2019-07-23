@@ -24,6 +24,15 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   http:
+  flutter_qq_bridge: ^0.0.3
+  fake_push: ^0.5.1
+  location: ^2.3.5
+  google_maps_flutter: ^0.5.4
+  image_picker: ^0.6.0+17
+  flutter_bugly: ^0.2.3+1
+  shared_preferences: ^0.4.3
+
+  
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +56,7 @@ flutter:
   #  - images/a_dot_ham.jpeg
     - lib/my-assets/mydata.json
     - lib/my-assets/myimg.png
-
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -59,12 +68,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: IconFont
+      fonts:
+        - asset: lib/theme_text/iconfont.ttf
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

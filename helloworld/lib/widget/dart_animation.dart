@@ -26,7 +26,12 @@ class AnimationSampleAppPage extends StatefulWidget {
 class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with TickerProviderStateMixin{
   AnimationController controller;
   CurvedAnimation curve;
-  
+  @override
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+    
   @override
   void initState() {
     // TODO: implement initState
@@ -65,12 +70,6 @@ class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with Ti
          },
        ),
     );
-
-    @override
-    dispose() {
-      controller.dispose();
-      super.dispose();
-    }
   }
 }
 
