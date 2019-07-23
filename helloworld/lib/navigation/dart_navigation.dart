@@ -15,6 +15,7 @@ class NavigationSampleApp extends StatelessWidget {
         '/a': (BuildContext context) => NavigationSampleAppPage(title: 'Home Page'),
         '/b': (BuildContext context) => NavigationSampleAppPage(title: 'page two'),
         '/c': (BuildContext context) => NavigationSampleAppPage(title: 'page three'),
+        '/d': (BuildContext context) => NavigationSampleAppPage(title: 'page four'),
       },
     );
   }
@@ -45,9 +46,28 @@ class _NavigationSampleAppPageState extends State<NavigationSampleAppPage> {
       // result = await Navigator.of(context).pushNamed('/c');
     } else if (this.title.contains('three')) {
       // 返回page one
-      Navigator.of(context).popUntil(ModalRoute.withName('/b'));
+      // Navigator.of(context).popUntil(ModalRoute.withName('/b'));
       // 带返回值
       // Navigator.of(context).pop({'key': 'value'});
+      // 自定义Routes
+      Navigator.push(context, PageRouteBuilder(
+        opaque: false,
+        pageBuilder: (BuildContext context, _, __){
+          return NavigationSampleAppPage(title: 'page four');//Center(child: Text('My Page Route'));
+        },
+        transitionsBuilder: (___, Animation<double> animation, ____, Widget child) {
+          return FadeTransition(
+            opacity: animation,
+            child: RotationTransition(
+              // 旋转动画参数
+              turns: Tween<double>(begin: 0.5, end: 1.0).animate(animation),
+              child: child,
+            ),
+          );
+        }
+      ));
+    } else if (this.title.contains('four')) {
+       Navigator.of(context).popUntil(ModalRoute.withName('/b'));
     }
     print('result = $result');
   }
