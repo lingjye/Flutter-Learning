@@ -10,6 +10,9 @@ PODS:
     - Flutter
   - flutter_qq_bridge (0.0.1):
     - Flutter
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - google_maps_flutter (0.0.1):
     - Flutter
     - GoogleMaps
@@ -22,6 +25,11 @@ PODS:
     - Flutter
   - location (0.0.1):
     - Flutter
+  - shared_preferences (0.0.1):
+    - Flutter
+  - sqflite (0.0.1):
+    - Flutter
+    - FMDB (~> 2.7.2)
 
 DEPENDENCIES:
   - fake_push (from `.symlinks/plugins/fake_push/ios`)
@@ -31,11 +39,14 @@ DEPENDENCIES:
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - location (from `.symlinks/plugins/location/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bugly
     - FakeXinGePush
+    - FMDB
     - GoogleMaps
 
 EXTERNAL SOURCES:
@@ -53,6 +64,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker/ios"
   location:
     :path: ".symlinks/plugins/location/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
 
 SPEC CHECKSUMS:
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
@@ -61,10 +76,13 @@ SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
   flutter_bugly: c9800f4d5bc5bdc27ffdde3417a26ba44266e0c3
   flutter_qq_bridge: 62aa30dbab9db0cad1d1f78bff47fde1f7cce68f
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   google_maps_flutter: 78a52114c898b42ea647919679a4c58b70abe876
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06
   location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
+  shared_preferences: 1feebfa37bb57264736e16865e7ffae7fc99b523
+  sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a
 
 PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
 

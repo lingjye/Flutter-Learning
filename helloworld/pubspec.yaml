@@ -31,9 +31,9 @@ dependencies:
   image_picker: ^0.6.0+17
   flutter_bugly: ^0.2.3+1
   shared_preferences: ^0.4.3
+  sqflite: ^1.1.6+2
 
   
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

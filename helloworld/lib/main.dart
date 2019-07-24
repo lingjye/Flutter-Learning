@@ -6,6 +6,8 @@ import 'package:helloworld/asyncprogram/dart_isolate.dart' as dart_isolate;
 import 'package:helloworld/form/dart_form.dart' as dart_form;
 import 'package:helloworld/gesture_touch/dart_gesture.dart' as dart_gesture;
 import 'package:helloworld/my-assets/dart_assets.dart' as dart_assets;
+import 'package:helloworld/database/dart_shared_preferences.dart';
+import 'package:helloworld/database/dart_sqflite.dart';
 import 'package:helloworld/theme_text/dart_theme.dart' as dart_theme;
 import 'package:helloworld/third_service/dart_camera.dart' as dart_picker;
 import 'package:helloworld/third_service/dart_location.dart' as dart_location;
@@ -52,7 +54,9 @@ void main() => FlutterBugly.postCatchedException((){
   // dart_picker.CameraSampleApp()
   // dart_location.LocationSampleApp()
     // QQLoginSampleApp()
-    XGPushSampleApp()
+    // XGPushSampleApp()
+    // SharedPreferenceSampleApp()
+    SqfliteSampleApp()
   );
 });
 
