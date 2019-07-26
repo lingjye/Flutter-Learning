@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:flutter/cupertino.dart';
+import 'sql_helper.dart';
 
 class SqfliteSampleApp extends StatelessWidget {
   const SqfliteSampleApp({Key key}) : super(key: key);
@@ -12,6 +14,9 @@ class SqfliteSampleApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: SqfliteSampleAppPage(),
+      routes: <String, WidgetBuilder> {
+        '/helper': (BuildContext context) => SQLHelperPage(),
+      },
     );
   }
 }
@@ -97,11 +102,110 @@ class _SqfliteSampleAppPageState extends State<SqfliteSampleAppPage> {
     print('count = $count');
   }
 
+  batch() async {
+    Batch batch = db.batch();
+    batch.insert('Test', {'name': 'item'});
+    batch.update('Test', {'name': 'new_item'}, where: 'name = ?', whereArgs: ['item']);
+    batch.delete('Test', where:'name = ?', whereArgs: ['new_item']);
+    var results = await batch.commit();
+    print(results);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
          title: Text('数据库'),
+       ),
+       body: Center(
+         child: Padding(
+           padding: EdgeInsets.only(top: 200),
+            child: Column(
+              children: <Widget>[
+                RaisedButton(
+                  child: Text('打开数据库'),
+                  onPressed: open,
+                ),
+                RaisedButton(
+                  child: Text('增'),
+                  onPressed: insert,
+                ),
+                RaisedButton(
+                  child: Text('删'),
+                  onPressed: delete,
+                ),
+                RaisedButton(
+                  child: Text('改'),
+                  onPressed: update,
+                ),
+                RaisedButton(
+                  child: Text('查'),
+                  onPressed: lookup,
+                ),
+                RaisedButton(
+                  child: Text('批处理'),
+                  onPressed: batch,
+                ),
+                RaisedButton(
+                  child: Text('关闭'),
+                  onPressed: close,
+                ),
+                RaisedButton(
+                  child: Text('SQL Helper'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/helper');
+                  },
+                )
+              ],
+            )
+         )
+       ),
+    );
+  }
+}
+
+class SQLHelperPage extends StatefulWidget {
+  SQLHelperPage({Key key}) : super(key: key);
+
+  _SQLHelperPageState createState() => _SQLHelperPageState();
+}
+
+class _SQLHelperPageState extends State<SQLHelperPage> {
+  TodoProvider provider = TodoProvider();
+
+  open() async {
+    var databasesPath = await getDatabasesPath();
+    String path = join(databasesPath, 'helper.db');
+    print('path: $path');
+    provider.open(path);
+  }
+
+  insert() async {
+    provider.insert(Todo.fromMap({columnTitle: 'test1', columnDone: 1}));
+    provider.insert(Todo.fromMap({columnTitle: 'test2', columnDone: 1}));
+  }
+
+  delete() {
+    provider.delete(2);
+  }
+
+  update() {
+    provider.update(Todo.fromMap({columnTitle: 'test2', columnDone: 1}));
+  }
+
+  lookup() {
+    provider.getTodo(1);
+  }
+
+  close() {
+    provider.close();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       appBar: AppBar(
+         title: Text('SQL Helper'),
        ),
        body: Center(
          child: Padding(
