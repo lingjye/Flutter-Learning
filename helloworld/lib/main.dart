@@ -4,8 +4,16 @@ import 'package:flutter/widgets.dart';
 import 'package:helloworld/asyncprogram/dart_async.dart' as dart_async;
 import 'package:helloworld/asyncprogram/dart_isolate.dart' as dart_isolate;
 import 'package:helloworld/dart_layout/dart_align.dart';
+import 'package:helloworld/dart_layout/dart_column.dart';
 import 'package:helloworld/dart_layout/dart_container.dart';
+import 'package:helloworld/dart_layout/dart_flow.dart';
+import 'package:helloworld/dart_layout/dart_row.dart';
+import 'package:helloworld/dart_layout/dart_stack.dart';
+import 'package:helloworld/dart_layout/dart_table.dart';
+import 'package:helloworld/dart_layout/dart_transform.dart';
+import 'package:helloworld/dart_layout/dart_wrap.dart';
 import 'package:helloworld/form/dart_form.dart' as dart_form;
+import 'package:helloworld/form/dart_textfiled.dart' as dart_textfiled;
 import 'package:helloworld/gesture_touch/dart_gesture.dart' as dart_gesture;
 import 'package:helloworld/list/dart_custom_scroll_view.dart';
 import 'package:helloworld/list/dart_grid_view.dart';
@@ -48,7 +56,14 @@ void main() => FlutterBugly.postCatchedException((){
   // dart_custom_widget.CustomButtonSampleApp()
   // 布局
   // ContainerSampleApp()
-  AlignSampleApp()
+  // AlignSampleApp()
+  // TransformSampleApp()
+  // RowSampleApp()
+  // ColumnSampleApp()
+  // StackSampleApp()
+  // FlowSampleApp()
+  // TableSampleApp()
+  WrapSampleApp()
 
   /// 导航
   // dart_navigation.NavigationSampleApp()
@@ -62,6 +77,7 @@ void main() => FlutterBugly.postCatchedException((){
   // 主题
   // dart_theme.MaterialSampleApp()
   // 表单
+  // dart_textfiled.FormSampleApp()
   // dart_form.FormSampleApp()
   // image picker
   // dart_picker.CameraSampleApp()
