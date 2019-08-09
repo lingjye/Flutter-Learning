@@ -20,8 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^2.1.0
-  http: ^0.12.0
-  scoped_model: ^0.3.0
+  http: ^0.12.0+1
+  scoped_model: ^1.0.1
   font_awesome_flutter: ^8.0.1
 
   # The following adds the Cupertino Icons font to your application.
@@ -29,6 +29,18 @@ dependencies:
   # 开源库本地安装路径 ~/Users/txooo/flutter/.pub-cache/hosted/pub.flutter-io.cn/xxxxx
   cupertino_icons: ^0.1.2
   english_words: ^3.1.0 
+  persist_theme: ^1.5.1
+  local_auth: ^0.5.2+4
+  json_annotation: ^2.0.0
+  shared_preferences: ^0.5.3+4
+  native_widgets: ^1.0.1
+  flutter_whatsnew: ^1.0.0
+  get_version: ^0.1.0
+  uuid: ^2.0.2
+
+
+
+    
   
 dev_dependencies:
   flutter_test:

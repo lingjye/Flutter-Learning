@@ -51,8 +51,4 @@ class ApiService implements MVVMApi {
       throw Exception('Filaed to get planets');
     }
   }
-
-  
-
-
 }
