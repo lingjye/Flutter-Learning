@@ -35,8 +35,8 @@ dependencies:
   shared_preferences: ^0.5.3+4
   native_widgets: ^1.0.1
   flutter_whatsnew: ^1.0.0
-  get_version: ^0.1.0
   uuid: ^2.0.2
+  # get_version: ^0.0.8+5
 
 
 

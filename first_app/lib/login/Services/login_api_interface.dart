@@ -19,7 +19,7 @@ abstract class LoginApi {
   inner.IOClient getClient();
 }
 
-const String apiUrl = 'https://regres.in/api/user/2';
+const String apiUrl = 'https://reqres.in/api/users/2';
 const bool devMode = false;
 const double textScaleFactor = 1.0;
 

@@ -18,7 +18,7 @@ class AuthViewModel extends Model {
   User _user;
 
   bool get rememberMe => _rememberMe;
-  set rememberMe(bool value) {
+  void handleRememberMe(bool value) {
     _rememberMe = value;
     notifyListeners();
     SharedPreferences.getInstance().then((prefs) {
@@ -27,7 +27,7 @@ class AuthViewModel extends Model {
   }
 
   bool get useBio => _useBio;
-  set useBio(bool value) {
+  void handleUseBio(bool value) {
     _useBio = value;
     notifyListeners();
     SharedPreferences.getInstance().then((prefs) {
@@ -36,7 +36,7 @@ class AuthViewModel extends Model {
   } 
 
   bool get stayLoggedIn => _stayLoggedIn;
-  set stayLoggedIn(bool value) {
+  void handleStayLoggedIn(bool value) {
     _stayLoggedIn = value;
     notifyListeners();
     SharedPreferences.getInstance().then((prefs) {
@@ -87,7 +87,7 @@ class AuthViewModel extends Model {
   }
 
   User get user => _user;
-  
+  // 获取用户信息
   Future<User> getInfo(String token) async {
     try {
       var _data = await LoginApiService(auth: User(token: token)).get(apiUrl);
@@ -100,8 +100,45 @@ class AuthViewModel extends Model {
     }
   }
 
-  // Future<>
+  Future<bool> login({
+    @required String username,
+    @required String password,
+  }) async {
+    var uuid = Uuid();
+    String _username = username;
+    String _password = password;
+    // 模拟延时
+    await Future.delayed(Duration(seconds: 2));
+    print('Logging In => $_username, $_password');
+    if (_rememberMe) {
+      // 记录用户名
+      SharedPreferences.getInstance().then((prefs) {
+        prefs.setString('saved_username', _username);
+      });
+    }
 
+    User _newUser = await getInfo(uuid.v4().toString());
+    if (_newUser != null) {
+      _user = _newUser;
+      notifyListeners();
+      // 保存数据
+      SharedPreferences.getInstance().then((prefs) {
+        var _save = json.encode(_user.toJson());
+        print('Save Data:$_save');
+        prefs.setString('user_data', _save);
+      });
+    }
 
+    if (_newUser?.token == null || _newUser.token.isEmpty) return false;
+    return true;
+  }
 
+  Future<void> logout() async {
+    _user = null;
+    notifyListeners();
+    // 退出登录清除数据
+    SharedPreferences.getInstance().then((prefs){
+      prefs.setString('user_data', null);
+    });
+  }
 }

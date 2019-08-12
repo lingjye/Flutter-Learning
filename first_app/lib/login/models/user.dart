@@ -20,7 +20,7 @@ class User {
   });
 
   User.fromJson(Map<String, dynamic>map) {
-    id = int.parse(map['id']);
+    id = map['id'] as int;
     firstname = map['first_name'];
     lastname = map['last_name'];
     avatar = map['avatar'];
