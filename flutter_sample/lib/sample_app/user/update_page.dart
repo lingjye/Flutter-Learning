@@ -20,7 +20,6 @@ class _UpdatePageState extends State<UpdatePage> with SingleTickerProviderStateM
       'appVersion': '2.0',
     });
 
-  double rowHeight ;
   GlobalKey glkey = GlobalKey();
 
   @override
