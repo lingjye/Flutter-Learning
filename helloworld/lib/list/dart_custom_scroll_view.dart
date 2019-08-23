@@ -10,7 +10,35 @@ class CustomScrollViewSampleApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: CustomScrollViewSampleAppPage(),
+      home: TempCustomScrollPage()//CustomScrollViewSampleAppPage(),
+    );
+  }
+}
+
+class TempCustomScrollPage extends StatelessWidget {
+  const TempCustomScrollPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('CustomScrollView'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('点击查看'),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return CustomScrollViewSampleAppPage();
+                }
+              )
+            );
+          },
+        ),
+      ),
+      
     );
   }
 }
@@ -58,7 +86,13 @@ class _CustomScrollViewSampleAppPageState extends State<CustomScrollViewSampleAp
             title: Text('CustomScrollView'),
             background: FlutterLogo(),
           ),
+          actions: <Widget>[
+            Icon(Icons.more_horiz)
+          ],
+          title: Text('tile'),
+          // floating: true,
         ),
+        
         SliverPadding(
           padding: EdgeInsets.all(10),
           sliver: SliverGrid(
@@ -89,6 +123,7 @@ class _CustomScrollViewSampleAppPageState extends State<CustomScrollViewSampleAp
             );
           }, childCount: 30),
         ),
+        
       ],
     );
   }

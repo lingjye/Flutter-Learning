@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:helloworld/asyncprogram/dart_async.dart' as dart_async;
 import 'package:helloworld/asyncprogram/dart_isolate.dart' as dart_isolate;
+import 'package:helloworld/button/dart_button.dart';
+import 'package:helloworld/dart_layout/dart_Positioned.dart';
 import 'package:helloworld/dart_layout/dart_align.dart';
 import 'package:helloworld/dart_layout/dart_column.dart';
 import 'package:helloworld/dart_layout/dart_container.dart';
+import 'package:helloworld/dart_layout/dart_expanded.dart';
 import 'package:helloworld/dart_layout/dart_flow.dart';
+import 'package:helloworld/dart_layout/dart_padding.dart';
 import 'package:helloworld/dart_layout/dart_row.dart';
 import 'package:helloworld/dart_layout/dart_stack.dart';
 import 'package:helloworld/dart_layout/dart_table.dart';
@@ -15,6 +20,7 @@ import 'package:helloworld/dart_layout/dart_wrap.dart';
 import 'package:helloworld/form/dart_form.dart' as dart_form;
 import 'package:helloworld/form/dart_textfiled.dart' as dart_textfiled;
 import 'package:helloworld/gesture_touch/dart_gesture.dart' as dart_gesture;
+import 'package:helloworld/life_cycle/life_cycle_page.dart';
 import 'package:helloworld/list/dart_custom_scroll_view.dart';
 import 'package:helloworld/list/dart_grid_view.dart';
 import 'package:helloworld/list/dart_grid_view_builder.dart';
@@ -26,6 +32,7 @@ import 'package:helloworld/list/dart_scrollview.dart';
 import 'package:helloworld/my-assets/dart_assets.dart' as dart_assets;
 import 'package:helloworld/database/dart_shared_preferences.dart';
 import 'package:helloworld/database/dart_sqflite.dart';
+import 'package:helloworld/theme_text/dart_text.dart';
 import 'package:helloworld/theme_text/dart_theme.dart' as dart_theme;
 import 'package:helloworld/third_service/dart_camera.dart' as dart_picker;
 import 'package:helloworld/third_service/dart_location.dart' as dart_location;
@@ -44,6 +51,9 @@ import 'package:flutter_bugly/flutter_bugly.dart';
 
 void main() => FlutterBugly.postCatchedException((){
   FlutterBugly.init(androidAppId: "your android app id",iOSAppId: "your iOS app id");
+  // 绘制文字排版中的baseline和border
+  debugPaintBaselinesEnabled = true;
+  debugPaintLayerBordersEnabled = true;
 
   runApp(
   /// Widget
@@ -56,14 +66,19 @@ void main() => FlutterBugly.postCatchedException((){
   // dart_custom_widget.CustomButtonSampleApp()
   // 布局
   // ContainerSampleApp()
+  // PaddingSampleApp()
   // AlignSampleApp()
   // TransformSampleApp()
   // RowSampleApp()
   // ColumnSampleApp()
+  // ExpandedSampleApp()
   // StackSampleApp()
+  PositionedSampleApp()
   // FlowSampleApp()
   // TableSampleApp()
-  WrapSampleApp()
+  // WrapSampleApp()
+  // 按钮
+  // ButtonSampleApp()
 
   /// 导航
   // dart_navigation.NavigationSampleApp()
@@ -74,8 +89,9 @@ void main() => FlutterBugly.postCatchedException((){
   // dart_assets.MyAssetsSampleApp()
   // 点击事件
   // dart_gesture.GestureSampleApp()
-  // 主题
+  // 主题 与 iconfont
   // dart_theme.MaterialSampleApp()
+    // TextSampleApp()
   // 表单
   // dart_textfiled.FormSampleApp()
   // dart_form.FormSampleApp()
@@ -94,6 +110,9 @@ void main() => FlutterBugly.postCatchedException((){
     // ScrollViewSampleApp()
     // CustomScrollViewSampleApp()
     // RefreshListViewSampleApp()
+    
+    // 生命周期
+    // LifeCycleApp()
   );
 });
 
