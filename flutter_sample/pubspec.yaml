@@ -25,10 +25,12 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   flutter_screenutil: ^0.4.2
-  # common_utils: ^1.1.1
   dio: ^2.1.0
   native_widgets: ^1.0.1
   flutter_downloader: ^1.0.5
+  scoped_model: ^1.0.1
+  shared_preferences: ^0.5.3+4
+
 
 
 dev_dependencies:
@@ -49,8 +51,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/welcome.png
-    - assets/icon_img.png
+    # - assets/welcome.png
+    # - assets/icon_img.png
+    - assets/ # 批量导入
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

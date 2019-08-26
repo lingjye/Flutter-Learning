@@ -13,8 +13,15 @@ class _NewsPageState extends State<NewsPage> {
       appBar: AppBar(
         title: Text('资讯'),
       ),
-       body: Card(
-         child: Text('data'),
+       body: Container(
+         // 主题复用
+         color: Theme.of(context).primaryColor,
+         child: Text(
+           'Text with a background color',
+           // 使用主题色
+          //  style: TextStyle(color: Theme.of(context).primaryColor),
+            style: Theme.of(context).textTheme.title,
+          ),
        ),
     );
   }

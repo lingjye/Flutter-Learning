@@ -30,6 +30,7 @@ class _MySampleAppMainPageState extends State<MySampleAppMainPage> {
 
   void pushPostView() {
        Navigator.of(context).push(CustomRoute(widget: PostPage(), type: CustomTransionType.Bottom));
+      // Navigator.of(context).pushNamed('/post_page');
   }
 
   void _checkAndUpdate() {

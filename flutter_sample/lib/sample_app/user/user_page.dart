@@ -1,4 +1,3 @@
-import '../user/update_page.dart';
 import 'package:flutter/material.dart';
 
 class UserPage extends StatefulWidget {
@@ -19,6 +18,7 @@ class _UserPageState extends State<UserPage> {
            child: Text('更新页'),
            onPressed: () {
              Navigator.pushNamed(context, '/update_page');
+            // Navigator.pushNamed(context, '/post_page');
            },
          ),
        ),

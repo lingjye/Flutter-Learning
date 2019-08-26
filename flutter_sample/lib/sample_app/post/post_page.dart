@@ -22,8 +22,26 @@ class _PostPageState extends State<PostPage> {
        appBar: AppBar(
          title: Text('发布'),
        ),
-       body: Container(
-         color: Colors.black12,
+       body: ListView(
+         children: <Widget>[
+           IntrinsicHeight(
+             child: Row(
+             children: <Widget>[
+               Expanded(flex: 1, child: Container(color: Colors.blue, height: 300,),),
+               Container(color: Colors.red, width: 50, ),
+               Container(color: Colors.yellow, width: 50,  height: double.infinity,)
+             ],
+           ),
+           ),
+           
+           Row(
+             children: <Widget>[
+               Expanded(flex: 1, child: Container(color: Colors.blue, height: 300,),),
+               Container(color: Colors.red, width: 50, height: 100,),
+               Container(color: Colors.yellow, width: 50, height: 100,),
+             ],
+           )
+         ],
        ),
     );
   }
