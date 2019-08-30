@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class WealthPage extends StatefulWidget {
@@ -7,15 +8,21 @@ class WealthPage extends StatefulWidget {
 }
 
 class _WealthPageState extends State<WealthPage> {
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('财富'),
       ),
-       body: Card(
-         child: Text('data'),
-       ),
+      body: Container(
+        color: Colors.red,
+      ),
     );
   }
 }
+
+
+

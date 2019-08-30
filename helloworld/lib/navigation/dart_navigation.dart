@@ -35,7 +35,7 @@ class _NavigationSampleAppPageState extends State<NavigationSampleAppPage> {
   Future _push() async {
     var result;
     if (widget.title.contains('Home')) {
-      Navigator.of(context).pushNamed('/b');
+      Navigator.of(context).pushNamed('/b', arguments: 'Hey');
     } else if (widget.title.contains('two')) {
       // 带返回值，方式一
       Navigator.of(context).pushNamed('/c').then((data){
@@ -69,6 +69,13 @@ class _NavigationSampleAppPageState extends State<NavigationSampleAppPage> {
        Navigator.of(context).popUntil(ModalRoute.withName('/b'));
     }
     print('result = $result');
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    String msg = ModalRoute.of(context).settings.arguments as String;
+    print('$msg');
   }
 
   @override

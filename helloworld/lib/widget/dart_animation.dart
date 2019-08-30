@@ -23,9 +23,10 @@ class AnimationSampleAppPage extends StatefulWidget {
   _AnimationSampleAppPageState createState() => _AnimationSampleAppPageState();
 }
 
-class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with TickerProviderStateMixin{
+class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with SingleTickerProviderStateMixin{
   AnimationController controller;
-  CurvedAnimation curve;
+  CurvedAnimation curveAnimation;
+  Animation<double> animation;
   @override
   dispose() {
     controller.dispose();
@@ -38,12 +39,34 @@ class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with Ti
     super.initState();
     controller = AnimationController(
       duration: const Duration(milliseconds: 2000),
-      vsync: this
+      vsync: this, // 绑定到需要显示到的widget上
+      
     );
-    curve = CurvedAnimation(
+    curveAnimation = CurvedAnimation(
       parent: controller,
-      curve: Curves.easeIn,
+      curve: Curves.elasticOut,
     );
+    // curveAnimation.addListener(() {
+      // value 0 - 1 透明度
+      // print('动画监听${controller.value}');
+    // });
+    curveAnimation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        // 执行完毕
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        // 反向执行完毕
+        controller.forward();
+      }
+    }); 
+    
+    // 创建从 50 到 200 跟随振荡曲线变化的 Animation 对象
+    animation = Tween(begin: 50.0, end: 200.0).animate(curveAnimation)..addListener(() {
+      setState(() {
+        
+      });
+    }) ;
+
   }
 
   @override
@@ -54,12 +77,15 @@ class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with Ti
        ),
        body: Center(
          child: Container(
-           child: FadeTransition(
-             opacity: curve,
+           width: animation.value,
+           height: animation.value,
+          // child: FlutterLogo(),
+          //  child: FadeTransition(
+          //    opacity: curveAnimation,
              child: FlutterLogo(
-               size: 100.0,
+              //  size: 100.0,
              ),
-           ),
+          //  ),
          ),
        ),
        floatingActionButton: FloatingActionButton(
@@ -67,6 +93,7 @@ class _AnimationSampleAppPageState extends State<AnimationSampleAppPage> with Ti
          child: Icon(Icons.update),
          onPressed: (){
            controller.forward();
+          // controller.repeat();
          },
        ),
     );

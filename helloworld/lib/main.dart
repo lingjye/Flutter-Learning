@@ -17,9 +17,16 @@ import 'package:helloworld/dart_layout/dart_stack.dart';
 import 'package:helloworld/dart_layout/dart_table.dart';
 import 'package:helloworld/dart_layout/dart_transform.dart';
 import 'package:helloworld/dart_layout/dart_wrap.dart';
+import 'package:helloworld/data_noti/inherited_widget.dart';
+import 'package:helloworld/database/dart_file.dart';
+import 'package:helloworld/device_channel/dart_native_view.dart';
+import 'package:helloworld/device_channel/method_channel.dart';
+import 'package:helloworld/dio/dart_dio_interceptor.dart';
 import 'package:helloworld/form/dart_form.dart' as dart_form;
 import 'package:helloworld/form/dart_textfiled.dart' as dart_textfiled;
 import 'package:helloworld/gesture_touch/dart_gesture.dart' as dart_gesture;
+import 'package:helloworld/gesture_touch/dart_multi_gesture.dart';
+import 'package:helloworld/json/dart_json_to_object.dart';
 import 'package:helloworld/life_cycle/life_cycle_page.dart';
 import 'package:helloworld/list/dart_custom_scroll_view.dart';
 import 'package:helloworld/list/dart_grid_view.dart';
@@ -39,7 +46,10 @@ import 'package:helloworld/third_service/dart_location.dart' as dart_location;
 import 'package:helloworld/third_service/dart_qq_login.dart';
 import 'package:helloworld/third_service/dart_xg_push.dart';
 import 'package:helloworld/widget/dart_animation.dart' as dart_animation;
+import 'package:helloworld/widget/dart_animation_builder.dart';
+import 'package:helloworld/widget/dart_animation_widget.dart';
 import 'package:helloworld/widget/dart_custom_widget.dart' as dart_custom_widget;
+import 'package:helloworld/widget/dart_hero_animation.dart';
 import 'package:helloworld/widget/dart_manage_subwidget.dart' as dart_subwidget;
 import 'package:helloworld/widget/dart_layout.dart' as dart_layout;
 import 'package:helloworld/widget/dart_paniter.dart' as dart_painter;
@@ -52,8 +62,8 @@ import 'package:flutter_bugly/flutter_bugly.dart';
 void main() => FlutterBugly.postCatchedException((){
   FlutterBugly.init(androidAppId: "your android app id",iOSAppId: "your iOS app id");
   // 绘制文字排版中的baseline和border
-  debugPaintBaselinesEnabled = true;
-  debugPaintLayerBordersEnabled = true;
+  // debugPaintBaselinesEnabled = true;
+  // debugPaintLayerBordersEnabled = true;
 
   runApp(
   /// Widget
@@ -62,6 +72,9 @@ void main() => FlutterBugly.postCatchedException((){
   // dart_layout.LayoutSampleApp()
   // dart_subwidget.SubWidgetSampleApp()
   // dart_animation.AnimationSampleApp()
+  // AnimationWidgetSampleApp()
+  // AnimationBuilderSample()
+  // HeroAnimationSample()
   // dart_painter.PainterSampleApp()
   // dart_custom_widget.CustomButtonSampleApp()
   // 布局
@@ -73,7 +86,7 @@ void main() => FlutterBugly.postCatchedException((){
   // ColumnSampleApp()
   // ExpandedSampleApp()
   // StackSampleApp()
-  PositionedSampleApp()
+  // PositionedSampleApp()
   // FlowSampleApp()
   // TableSampleApp()
   // WrapSampleApp()
@@ -89,6 +102,7 @@ void main() => FlutterBugly.postCatchedException((){
   // dart_assets.MyAssetsSampleApp()
   // 点击事件
   // dart_gesture.GestureSampleApp()
+  // MultiGestureSampleApp()
   // 主题 与 iconfont
   // dart_theme.MaterialSampleApp()
     // TextSampleApp()
@@ -98,6 +112,12 @@ void main() => FlutterBugly.postCatchedException((){
   // image picker
   // dart_picker.CameraSampleApp()
   // dart_location.LocationSampleApp()
+
+    // DioSample()
+    // JsonObjectSample()
+    // FileManageSample()
+    // MethodChannelSample()
+    SampleNativeViewSample()
     // QQLoginSampleApp()
     // XGPushSampleApp()
     // SharedPreferenceSampleApp()
@@ -113,6 +133,8 @@ void main() => FlutterBugly.postCatchedException((){
     
     // 生命周期
     // LifeCycleApp()
+
+    // InHeritedSampleApp()
   );
 });
 

@@ -1,7 +1,7 @@
 import '..//home/home_page.dart';
 import '../main/center_nav.dart';
 import '../news/news_page.dart';
-import '../news/wealth/wealth_page.dart';
+import '../wealth/wealth_page.dart';
 import '../user/user_page.dart';
 import '../post/post_page.dart';
 import '../helpers/check_version.dart';
@@ -31,6 +31,8 @@ class _MySampleAppMainPageState extends State<MySampleAppMainPage> {
   void pushPostView() {
        Navigator.of(context).push(CustomRoute(widget: PostPage(), type: CustomTransionType.Bottom));
       // Navigator.of(context).pushNamed('/post_page');
+      // UnknownRoute
+      // Navigator.of(context).pushNamed('post_unknown');
   }
 
   void _checkAndUpdate() {

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:isolate';
-
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -29,7 +30,41 @@ class _IsolateSampleAppPageState extends State<IsolateSampleAppPage> {
     // TODO: implement initState
     super.initState();
     loadData();
+
+    // Isolate Test
+    Isolate.spawn(isolateTest, 'Isolate');
+
+    startSend();
+
+    Future(() => print('f1'))
+    .then((_) async => Future.microtask(() => print('f2')))
+    .then((_) => print('f3'));
+    Future(() => print('f4'));
+
   }
+
+  isolateTest(msg) => print(msg);
+  
+  Isolate isolate;
+
+  startSend() async {
+    ReceivePort receivePort = ReceivePort(); // 创建管道
+    // 创建并发 Isolate， 并传入发送管道
+    isolate = await Isolate.spawn(getMsg, receivePort.sendPort);
+    // 监听管道信息
+    receivePort.listen((data) {
+      print('Data: $data');
+      receivePort.close(); // 关闭管道
+      isolate?.kill(priority: Isolate.immediate); // 杀死并发 Isolate
+      isolate = null;
+    });
+  }
+
+  getMsg(sendPort) => sendPort.send('Hello');
+
+
+
+  //------
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +142,7 @@ class _IsolateSampleAppPageState extends State<IsolateSampleAppPage> {
     }
   }
 
-  Future sendReceive(SendPort port, msg) {
+  Future sendReceive(SendPort port, msg) async {
     ReceivePort response = ReceivePort();
     port.send([msg, response.sendPort]);
     return response.first;

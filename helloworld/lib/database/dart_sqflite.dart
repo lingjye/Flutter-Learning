@@ -67,6 +67,7 @@ class _SqfliteSampleAppPageState extends State<SqfliteSampleAppPage> {
       );
       print('inserted2:$id2');
     });
+    
   }
 
   delete() async {
