@@ -4,3 +4,10 @@
 @interface AppDelegate : FlutterAppDelegate
 
 @end
+
+
+@interface NativeAppDelegate : UIResponder<UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
+@end

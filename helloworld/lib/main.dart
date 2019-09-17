@@ -19,6 +19,7 @@ import 'package:helloworld/dart_layout/dart_transform.dart';
 import 'package:helloworld/dart_layout/dart_wrap.dart';
 import 'package:helloworld/data_noti/inherited_widget.dart';
 import 'package:helloworld/database/dart_file.dart';
+import 'package:helloworld/device_channel/dart_native_navigation.dart';
 import 'package:helloworld/device_channel/dart_native_view.dart';
 import 'package:helloworld/device_channel/method_channel.dart';
 import 'package:helloworld/dio/dart_dio_interceptor.dart';
@@ -39,6 +40,7 @@ import 'package:helloworld/list/dart_scrollview.dart';
 import 'package:helloworld/my-assets/dart_assets.dart' as dart_assets;
 import 'package:helloworld/database/dart_shared_preferences.dart';
 import 'package:helloworld/database/dart_sqflite.dart';
+import 'package:helloworld/state_manage/state_provider.dart';
 import 'package:helloworld/theme_text/dart_text.dart';
 import 'package:helloworld/theme_text/dart_theme.dart' as dart_theme;
 import 'package:helloworld/third_service/dart_camera.dart' as dart_picker;
@@ -117,7 +119,9 @@ void main() => FlutterBugly.postCatchedException((){
     // JsonObjectSample()
     // FileManageSample()
     // MethodChannelSample()
-    SampleNativeViewSample()
+    // SampleNativeViewSample()
+    // NativeNavigationSample()
+    ProviderSample()
     // QQLoginSampleApp()
     // XGPushSampleApp()
     // SharedPreferenceSampleApp()

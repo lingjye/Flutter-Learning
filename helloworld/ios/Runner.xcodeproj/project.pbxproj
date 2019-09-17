@@ -10,6 +10,9 @@
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		2E3ECB862318CFF9006582BC /* SampleViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB852318CFF9006582BC /* SampleViewFactory.m */; };
 		2E3ECB892318D38F006582BC /* SampleViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3ECB882318D38F006582BC /* SampleViewControl.m */; };
+		2E89F9452330D4CB00FABEC3 /* FlutterHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E89F9442330D4CB00FABEC3 /* FlutterHomeViewController.m */; };
+		2E89F9482330D57200FABEC3 /* NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E89F9472330D57200FABEC3 /* NativeViewController.m */; };
+		2E89F94B2330DC2B00FABEC3 /* FlutterViewController+MethodChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E89F94A2330DC2B00FABEC3 /* FlutterViewController+MethodChannel.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		3B80C3941E831B6300D905FE /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; };
 		3B80C3951E831B6300D905FE /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B80C3931E831B6300D905FE /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -46,8 +49,14 @@
 		2E3ECB842318CFF9006582BC /* SampleViewFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleViewFactory.h; sourceTree = "<group>"; };
 		2E3ECB852318CFF9006582BC /* SampleViewFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleViewFactory.m; sourceTree = "<group>"; };
 		2E3ECB872318D38F006582BC /* SampleViewControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleViewControl.h; sourceTree = "<group>"; };
-		2E3ECB882318D38F006582BC /* SampleViewControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleViewControl.m; sourceTree = "<group>"; };
+		2E3ECB882318D38F006582BC /* SampleViewControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleViewControl.m; sourceTree = "<group>"; wrapsLines = 0; };
 		2E69251522E6F579003A59C2 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		2E89F9432330D4CB00FABEC3 /* FlutterHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlutterHomeViewController.h; sourceTree = "<group>"; };
+		2E89F9442330D4CB00FABEC3 /* FlutterHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlutterHomeViewController.m; sourceTree = "<group>"; };
+		2E89F9462330D57200FABEC3 /* NativeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeViewController.h; sourceTree = "<group>"; };
+		2E89F9472330D57200FABEC3 /* NativeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeViewController.m; sourceTree = "<group>"; };
+		2E89F9492330DC2B00FABEC3 /* FlutterViewController+MethodChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlutterViewController+MethodChannel.h"; sourceTree = "<group>"; };
+		2E89F94A2330DC2B00FABEC3 /* FlutterViewController+MethodChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FlutterViewController+MethodChannel.m"; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		3B80C3931E831B6300D905FE /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = Flutter/App.framework; sourceTree = "<group>"; };
 		6462DFB86FBCA6A439669F86 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +150,12 @@
 				2E3ECB852318CFF9006582BC /* SampleViewFactory.m */,
 				2E3ECB872318D38F006582BC /* SampleViewControl.h */,
 				2E3ECB882318D38F006582BC /* SampleViewControl.m */,
+				2E89F9432330D4CB00FABEC3 /* FlutterHomeViewController.h */,
+				2E89F9442330D4CB00FABEC3 /* FlutterHomeViewController.m */,
+				2E89F9492330DC2B00FABEC3 /* FlutterViewController+MethodChannel.h */,
+				2E89F94A2330DC2B00FABEC3 /* FlutterViewController+MethodChannel.m */,
+				2E89F9462330D57200FABEC3 /* NativeViewController.h */,
+				2E89F9472330D57200FABEC3 /* NativeViewController.m */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -336,8 +351,11 @@
 			files = (
 				2E3ECB892318D38F006582BC /* SampleViewControl.m in Sources */,
 				978B8F6F1D3862AE00F588F7 /* AppDelegate.m in Sources */,
+				2E89F94B2330DC2B00FABEC3 /* FlutterViewController+MethodChannel.m in Sources */,
+				2E89F9452330D4CB00FABEC3 /* FlutterHomeViewController.m in Sources */,
 				97C146F31CF9000F007C117D /* main.m in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				2E89F9482330D57200FABEC3 /* NativeViewController.m in Sources */,
 				2E3ECB862318CFF9006582BC /* SampleViewFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
