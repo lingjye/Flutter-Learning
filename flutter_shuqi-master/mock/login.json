@@ -1,0 +1,15 @@
+{
+  "state": "200",
+  "message": "success",
+  "data": {
+    
+    "token": "k3h6lvk3l78lxiutq5578",
+    "id": 1854,
+    "nickname": "lingjye",
+    "avatar": "https://www.lingjye.com/img/avatar_1.jpeg",
+    "is_vip":  0,
+    "wealth": 53.4,
+    "coupon": 3,
+    "ticket": 6
+  }
+}
