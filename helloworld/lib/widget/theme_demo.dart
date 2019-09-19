@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/debug_develop/config.dart';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    final appName = 'Custom Themes';
+    // final appName = 'Custom Themes';
+    var config = AppConfig.of(context);// 获取配置信息
+    var appName = config.appName;
     return MaterialApp(
       title: appName,
       theme:  new ThemeData(
@@ -33,7 +36,8 @@ class MyHomePage extends StatelessWidget {
         child: new Container(
           color: Theme.of(context).accentColor,
           child: new Text(
-            title
+            // title
+            AppConfig.of(context).apiBaseUrl
           ),
         ),
       ),
@@ -43,7 +47,6 @@ class MyHomePage extends StatelessWidget {
           onPressed: null,
           child: new Icon(Icons.add),
         ),
-        
       ),
     );
   }

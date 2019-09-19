@@ -19,6 +19,7 @@ import 'package:helloworld/dart_layout/dart_transform.dart';
 import 'package:helloworld/dart_layout/dart_wrap.dart';
 import 'package:helloworld/data_noti/inherited_widget.dart';
 import 'package:helloworld/database/dart_file.dart';
+import 'package:helloworld/debug_develop/config.dart';
 import 'package:helloworld/device_channel/dart_native_navigation.dart';
 import 'package:helloworld/device_channel/dart_native_view.dart';
 import 'package:helloworld/device_channel/method_channel.dart';
@@ -40,6 +41,8 @@ import 'package:helloworld/list/dart_scrollview.dart';
 import 'package:helloworld/my-assets/dart_assets.dart' as dart_assets;
 import 'package:helloworld/database/dart_shared_preferences.dart';
 import 'package:helloworld/database/dart_sqflite.dart';
+import 'package:helloworld/orientation/orientation_builder.dart';
+import 'package:helloworld/state_manage/muti_provider.dart';
 import 'package:helloworld/state_manage/state_provider.dart';
 import 'package:helloworld/theme_text/dart_text.dart';
 import 'package:helloworld/theme_text/dart_theme.dart' as dart_theme;
@@ -66,8 +69,21 @@ void main() => FlutterBugly.postCatchedException((){
   // 绘制文字排版中的baseline和border
   // debugPaintBaselinesEnabled = true;
   // debugPaintLayerBordersEnabled = true;
+  var configuredApp = AppConfig(
+    appName: 'example', //主页标题
+    apiBaseUrl: 'http://api.example.com/',
+    child: dart_theme.MyApp(),
+  );
+  print(configuredApp.appName);
+  // 空实现
+  debugPrint = (String message, {int wrapWidth}){};
 
-  runApp(
+  debugPrint(configuredApp.apiBaseUrl);
+
+  debugPaintSizeEnabled = true;
+
+  runApp(configuredApp);
+  // runApp(
   /// Widget
   // dart_theme.MyApp()
   // dart_widget.SampleApp()
@@ -121,7 +137,8 @@ void main() => FlutterBugly.postCatchedException((){
     // MethodChannelSample()
     // SampleNativeViewSample()
     // NativeNavigationSample()
-    ProviderSample()
+    // ProviderSample()
+    // MutiProviderSample()
     // QQLoginSampleApp()
     // XGPushSampleApp()
     // SharedPreferenceSampleApp()
@@ -137,8 +154,9 @@ void main() => FlutterBugly.postCatchedException((){
     
     // 生命周期
     // LifeCycleApp()
-
     // InHeritedSampleApp()
-  );
+    // OrientationBuilderSample()
+
+  // );
 });
 

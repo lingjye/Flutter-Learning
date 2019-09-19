@@ -19,13 +19,8 @@ class ProviderSample extends StatelessWidget {
   }
 }
 
-class ProviderSamplePage extends StatefulWidget {
-  ProviderSamplePage({Key key}) : super(key: key);
-
-  _ProviderSamplePageState createState() => _ProviderSamplePageState();
-}
-
-class _ProviderSamplePageState extends State<ProviderSamplePage> {
+class ProviderSamplePage extends StatelessWidget {
+  const ProviderSamplePage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final _counter = Provider.of<Counter>(context);
@@ -48,15 +43,27 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _counter = Provider.of<Counter>(context);
+    // final _counter = Provider.of<Counter>(context);
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Counter'),
+      ),
       body: Center(
-        child: Text('Counter:${_counter.counter}')
+        child: Consumer<Counter>(
+          builder: (context, counter, _) {
+            return Text('Counter:${counter.counter}');
+          },
+        )
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _counter.increment,
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: Consumer<Counter>(
+        builder: (context, counter, child) {
+          return FloatingActionButton(
+            onPressed: counter.increment,
+            child: child //Icon(Icons.add),
+          );
+        },
+        child: TestIcon(),
+      ) 
     );
   }
 }
@@ -68,5 +75,15 @@ class Counter with ChangeNotifier {
     _count++;
     // 通知监听者刷新
     notifyListeners();
+  }
+}
+
+class TestIcon extends StatelessWidget {
+  const TestIcon({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print('TestIcon build');
+    return Icon(Icons.add);
   }
 }

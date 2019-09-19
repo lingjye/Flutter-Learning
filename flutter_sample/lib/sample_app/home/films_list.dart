@@ -8,9 +8,8 @@ import 'package:scoped_model/scoped_model.dart';
 
 class FilmsList extends StatelessWidget {
   const FilmsList({Key key}) : super(key: key);
- 
-  @override
-  Widget build(BuildContext context) {
+  
+  filmList() {
     return ScopedModelDescendant<HomeViewModel> (
       builder: (context, child, model) {
         return FutureBuilder<List<Film>>(
@@ -24,13 +23,18 @@ class FilmsList extends StatelessWidget {
               case ConnectionState.done: {
                 if (snapshot.hasData) {
                   var films = snapshot.data;
-                  return ListView.builder(
-                    itemCount: films == null ? 0 : films.length,
-                    itemBuilder: (_, int index) {
-                      Film film = films[index];
-                      return FilmsItem(film: film,);
-                    },
-                  );
+                  return RefreshIndicator(
+                      child: ListView.builder(
+                        itemCount: films == null ? 0 : films.length,
+                        itemBuilder: (_, int index) {
+                          Film film = films[index];
+                          return FilmsItem(film: film,);
+                        },
+                      ),
+                      onRefresh: () async {
+                        await model.setFilms();
+                      },
+                    );  
                 } else if (snapshot.hasError) {
                   return NoInternetConnection(
                     action: () async {
@@ -47,5 +51,10 @@ class FilmsList extends StatelessWidget {
         );
       },
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return filmList();
   }
 }
