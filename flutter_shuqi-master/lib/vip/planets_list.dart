@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_sample/sample_app/home/models/planets.dart';
-import 'package:flutter_sample/sample_app/home/no_internet_connection.dart';
-import 'package:flutter_sample/sample_app/home/service/home_page_view_model.dart';
+import 'package:shuqi/vip/models/films.dart';
+import './models/planets.dart';
+import './no_internet_connection.dart';
+import './service/home_page_view_model.dart';
 import './planets_item.dart';
 import 'package:scoped_model/scoped_model.dart';
 
