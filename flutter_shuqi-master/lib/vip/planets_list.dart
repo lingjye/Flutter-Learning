@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shuqi/vip/models/films.dart';
 import './models/planets.dart';
 import './no_internet_connection.dart';
 import './service/home_page_view_model.dart';

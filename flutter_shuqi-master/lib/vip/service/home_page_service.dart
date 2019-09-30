@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import '../models/characters.dart';
 import '../models/films.dart';
@@ -19,10 +18,12 @@ class HomePageService implements HomePageApi {
   Future<List<Film>> getFilms() async {
     print('刷新1');
     Response response = await dio.get('$_baseUrl/films');
+    print(response);
     if (response.statusCode == 200) {
       var data = response.data;
       List<dynamic> filmsData = data['results'];
       List<Film> films = filmsData.map((f) => Film.fromMap(f)).toList();
+      print(films);
       return films;
     } else {
       throw Exception('Filaed to get planets');

@@ -27,6 +27,21 @@ final ThemeData kIOSTheme = ThemeData(
   textTheme: TextTheme(body1: TextStyle(color: Colors.green))
 );
 
+final ThemeData kAndroidTheme = ThemeData(
+  // 主题色 Color
+    primaryColor: Color.fromRGBO(152, 202, 83, 1),
+    // statubar style
+    // primaryColorBrightness: Brightness.light,
+    // 前景色 黑色
+    accentColor: Colors.red,
+    // 是否暗黑模式
+    brightness: Brightness.dark,
+    // icon图标主题 所有icon都为黄色
+    iconTheme: IconThemeData(color: Colors.yellow),
+    // 文字主题 文本颜色为绿色
+    textTheme: TextTheme(body1: TextStyle(color: Colors.green))
+);
+
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
   TabController controller;
@@ -105,7 +120,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
     return Theme(
       child: childWidget(),
-      data: kIOSTheme
+      data: widget.viewModel.isDarkTheme ? kAndroidTheme : kIOSTheme
     );
     
   }
